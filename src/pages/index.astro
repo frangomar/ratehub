@@ -1,0 +1,266 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const features = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
+    title: 'Dashboard multi-sede',
+    desc: 'Consolidá las reseñas, calificaciones y métricas de todas tus sucursales en una sola pantalla. Sin saltar entre perfiles de Google.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 00-5-5.917V4a1 1 0 10-2 0v1.083A6 6 0 006 11v3.159c0 .538-.214 1.055-.595 1.437L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>`,
+    title: 'Alertas de reseñas negativas',
+    desc: 'Recibí una notificación inmediata cada vez que una sede recibe una calificación baja, para poder responder antes de que escale.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/><path d="M18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>`,
+    title: 'Respuestas asistidas por IA',
+    desc: 'Redactá respuestas profesionales a reseñas con ayuda de IA, manteniendo el tono de tu marca. Revisás y publicás vos.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>`,
+    title: 'Monitoreo de reseñas',
+    desc: 'Visualizá en tiempo real todas las reseñas entrantes de tus sedes en Google, filtrá por sucursal, calificación o fecha.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>`,
+    title: 'Solicitud de nuevas reseñas',
+    desc: 'Enviá invitaciones a tus clientes para que dejen su opinión en Google, directamente desde la plataforma.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>`,
+    title: 'Reportes mensuales por sede',
+    desc: 'Generá un informe automático con la evolución de calificaciones, volumen de reseñas y comparativa entre sucursales.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Conectás tu Google Business Profile',
+    desc: 'Con un clic iniciás el flujo de autorización OAuth 2.0 oficial de Google. Nunca te pedimos tu contraseña. Solo autorizás los permisos necesarios desde tu propia cuenta de Google.',
+  },
+  {
+    num: '02',
+    title: 'Ves todas tus sedes en un solo tablero',
+    desc: 'Todas tus sucursales aparecen consolidadas: reseñas, calificaciones, tendencias y alertas en una sola pantalla. No hace falta entrar al perfil de Google de cada una por separado.',
+  },
+  {
+    num: '03',
+    title: 'Actuás sobre las reseñas',
+    desc: 'Respondé reseñas (con asistencia de IA si querés), gestioná alertas negativas, pedí nuevas opiniones y descargá reportes — todo sin salir de RateHub.',
+  },
+];
+---
+
+<Layout
+  title="RateHub — Gestión de reseñas multi-sede para negocios locales"
+  description="Consolidá las reseñas de Google de todas tus sucursales en un solo tablero. Alertas de reseñas negativas, respuestas con IA y reportes mensuales. Ideal para cadenas de gimnasios y centros fitness."
+  ogTitle="RateHub — Gestión de reseñas multi-sede para negocios locales"
+  ogDescription="Consolidá las reseñas de Google de todas tus sucursales en un solo tablero. Alertas, respuestas con IA y reportes mensuales."
+>
+  <Header />
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-brand-50 pt-20 pb-24 sm:pt-28 sm:pb-32">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-100/40 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <!-- Pill badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
+            <span class="w-1.5 h-1.5 bg-brand-500 rounded-full"></span>
+            Incorporando primeros socios piloto
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight mb-6">
+            Todas tus sedes,<br class="hidden sm:block"/>
+            <span class="text-brand-600">un solo tablero</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 leading-relaxed mb-8 max-w-2xl">
+            RateHub conecta con tu <strong class="text-slate-800">Google Business Profile</strong> para consolidar
+            las reseñas de todas tus sucursales en un solo lugar. Alertas, respuestas y reportes —
+            sin malabarismos entre perfiles.
+          </p>
+
+          <p class="text-base text-slate-500 mb-8">
+            Pensado para cadenas de gimnasios, centros fitness y cualquier negocio local con múltiples sedes en Argentina.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              href="#contacto"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 text-base"
+            >
+              Solicitar acceso al piloto
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+            </a>
+            <a
+              href="#como-funciona"
+              class="inline-flex items-center justify-center px-6 py-3 text-slate-700 font-semibold rounded-lg border border-slate-300 hover:border-slate-400 hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-base"
+            >
+              Ver cómo funciona
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section id="features" class="py-20 sm:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            Todo lo que necesitás para gestionar tu reputación
+          </h2>
+          <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+            Desde el monitoreo en tiempo real hasta los reportes mensuales, RateHub centraliza la gestión de reseñas de Google para negocios con múltiples sedes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map(f => (
+            <div class="group p-6 rounded-xl border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all duration-200 bg-white">
+              <div class="w-10 h-10 text-brand-600 mb-4" set:html={f.icon} />
+              <h3 class="text-base font-semibold text-slate-900 mb-2">{f.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMO FUNCIONA ===== -->
+    <section id="como-funciona" class="py-20 sm:py-28 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            Empezás en 3 pasos
+          </h2>
+          <p class="text-lg text-slate-500 max-w-xl mx-auto">
+            Sin instalaciones complicadas, sin compartir contraseñas. La integración con Google es oficial y segura.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {steps.map((s, i) => (
+            <div class="relative">
+              {i < steps.length - 1 && (
+                <div class="hidden md:block absolute top-6 left-full w-full h-px bg-brand-200 -translate-x-1/2" aria-hidden="true" />
+              )}
+              <div class="flex flex-col items-start">
+                <div class="w-12 h-12 bg-brand-600 text-white font-bold text-sm rounded-xl flex items-center justify-center mb-4 shrink-0">
+                  {s.num}
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">{s.title}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- OAuth trust note -->
+        <div class="mt-12 flex items-start gap-3 p-5 bg-brand-50 border border-brand-200 rounded-xl max-w-2xl mx-auto">
+          <svg class="w-5 h-5 text-brand-600 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-brand-800 mb-1">Conexión segura mediante OAuth 2.0 oficial de Google</p>
+            <p class="text-sm text-brand-700">
+              RateHub nunca almacena tu contraseña de Google. El acceso a tu Google Business Profile se realiza exclusivamente a través del protocolo oficial de autorización de Google (OAuth 2.0). Podés revocar el acceso en cualquier momento desde tu cuenta de Google.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== USO DE DATOS GOOGLE ===== -->
+    <section class="py-20 sm:py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">
+              Cómo usamos los datos de Google
+            </h2>
+            <p class="text-slate-600 mb-5 leading-relaxed">
+              RateHub accede solo a los datos de Google Business Profile que necesita para brindarte el servicio: las sedes de tu negocio, tus reseñas, calificaciones y respuestas a reseñas.
+            </p>
+            <ul class="space-y-3 mb-6">
+              {[
+                'Solo accedemos a tus datos después de que vos lo autorizás explícitamente mediante Google OAuth 2.0.',
+                'Tus datos se usan únicamente para darte las funciones de RateHub. No se venden ni se usan para publicidad.',
+                'Podés revocar el acceso en cualquier momento desde tu cuenta de Google.',
+                'Cumplimos con la Google API Services User Data Policy, incluidos los requisitos de Limited Use.',
+              ].map(item => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-sm text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="/privacidad" class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors">
+              Leer política de privacidad completa
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 bg-white rounded-lg border border-slate-200 flex items-center justify-center">
+                <svg class="w-5 h-5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"/>
+                </svg>
+              </div>
+              <span class="font-semibold text-slate-800 text-sm">Compromisos de privacidad</span>
+            </div>
+            <dl class="space-y-4">
+              {[
+                { dt: 'Datos accedidos', dd: 'Sedes, reseñas, calificaciones y respuestas de Google Business Profile.' },
+                { dt: 'Propósito', dd: 'Exclusivamente para las funciones de gestión de reputación del servicio.' },
+                { dt: 'Compartición', dd: 'No se venden datos. Solo se comparten con subprocesadores necesarios para operar el servicio.' },
+                { dt: 'Eliminación', dd: 'A solicitud del usuario o al revocar el acceso OAuth.' },
+              ].map(({ dt, dd }) => (
+                <div>
+                  <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-0.5">{dt}</dt>
+                  <dd class="text-sm text-slate-700">{dd}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="py-20 sm:py-28 bg-brand-700">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+          ¿Querés ser de los primeros socios piloto?
+        </h2>
+        <p class="text-lg text-brand-200 mb-8 max-w-xl mx-auto">
+          RateHub está incorporando a sus primeros socios piloto. Si manejás una cadena de gimnasios, centros fitness u otro negocio con múltiples sedes, escribinos.
+        </p>
+        <a
+          href="mailto:hola@ratehub.com.ar"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-700 font-bold rounded-xl hover:bg-brand-50 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700 text-base"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+          </svg>
+          hola@ratehub.com.ar
+        </a>
+        <p class="mt-4 text-sm text-brand-300">
+          También podés escribirnos para preguntas sobre privacidad a
+          <a href="mailto:privacy@ratehub.com.ar" class="underline hover:text-white transition-colors">privacy@ratehub.com.ar</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  lang?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description = 'RateHub — Gestión de reseñas multi-sede para negocios locales. Conectá tu Google Business Profile y administrá todas tus sucursales desde un solo tablero.',
+  ogTitle,
+  ogDescription,
+  lang = 'es',
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = 'https://ratehub.com.ar';
+const canonical = canonicalUrl ?? siteUrl + Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:description" content={ogDescription ?? description} />
+    <meta property="og:site_name" content="RateHub" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_AR' : 'en_US'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle ?? title} />
+    <meta name="twitter:description" content={ogDescription ?? description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-slate-900 font-sans antialiased">
+    <slot />
+  </body>
+</html>

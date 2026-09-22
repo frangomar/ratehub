@@ -1,0 +1,88 @@
+---
+const navItems = [
+  { href: '/#features', label: 'Funcionalidades' },
+  { href: '/#como-funciona', label: 'Cómo funciona' },
+  { href: '/#contacto', label: 'Contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group" aria-label="RateHub — Inicio">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#4f46e5"/>
+          <path d="M8 22 L14 10 L20 18 L23 14 L26 22 Z" fill="white" opacity="0.9"/>
+          <circle cx="23" cy="11" r="3" fill="#818cf8"/>
+        </svg>
+        <span class="text-xl font-bold text-slate-900 tracking-tight">RateHub</span>
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA -->
+      <a
+        href="/#contacto"
+        class="hidden md:inline-flex items-center gap-1.5 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+      >
+        Solicitar acceso
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="menu-toggle"
+        type="button"
+        class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Navegación móvil">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-md"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/#contacto"
+        class="mt-2 px-3 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg text-center"
+      >
+        Solicitar acceso
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  });
+</script>

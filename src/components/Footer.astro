@@ -1,0 +1,58 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-slate-900 text-slate-400">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" class="flex items-center gap-2 mb-3" aria-label="RateHub">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#4f46e5"/>
+            <path d="M8 22 L14 10 L20 18 L23 14 L26 22 Z" fill="white" opacity="0.9"/>
+            <circle cx="23" cy="11" r="3" fill="#818cf8"/>
+          </svg>
+          <span class="text-white font-bold text-lg">RateHub</span>
+        </a>
+        <p class="text-sm leading-relaxed">
+          Gestión de reputación multi-sede para negocios locales en Argentina.
+        </p>
+      </div>
+
+      <!-- Product -->
+      <div>
+        <h3 class="text-white text-sm font-semibold mb-3 uppercase tracking-wider">Producto</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/#features" class="hover:text-white transition-colors">Funcionalidades</a></li>
+          <li><a href="/#como-funciona" class="hover:text-white transition-colors">Cómo funciona</a></li>
+          <li><a href="/#contacto" class="hover:text-white transition-colors">Solicitar acceso</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-white text-sm font-semibold mb-3 uppercase tracking-wider">Legal</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/privacidad" class="hover:text-white transition-colors">Política de privacidad</a></li>
+          <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy (English)</a></li>
+          <li><a href="/terminos" class="hover:text-white transition-colors">Términos de servicio</a></li>
+          <li>
+            <a href="mailto:hola@ratehub.com.ar" class="hover:text-white transition-colors">
+              hola@ratehub.com.ar
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs">
+      <p>© {year} RateHub. Todos los derechos reservados.</p>
+      <p>
+        Este sitio no está asociado con Google LLC.
+        Google Business Profile es una marca de Google LLC.
+      </p>
+    </div>
+  </div>
+</footer>

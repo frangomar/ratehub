@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = 'September 22, 2025';
+---
+
+<Layout
+  title="Privacy Policy — RateHub"
+  description="Privacy Policy for RateHub (ratehub.com.ar). How we access, use, store, and delete Google Business Profile data. Compliant with Google API Services User Data Policy."
+  lang="en"
+  canonicalUrl="https://ratehub.com.ar/privacy"
+>
+  <Header />
+
+  <main class="py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-10 pb-8 border-b border-slate-200">
+        <div class="flex items-center gap-3 mb-4">
+          <a href="/privacidad" class="text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200 transition-colors">
+            Versión en español →
+          </a>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
+        <p class="text-slate-500 text-sm">
+          Application name: <strong>RateHub</strong> &middot;
+          Domain: <strong>ratehub.com.ar</strong> &middot;
+          Last updated: <strong>{lastUpdated}</strong>
+        </p>
+      </div>
+
+      <div class="prose prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600 prose-a:text-brand-600 prose-strong:text-slate-800">
+
+        <h2>1. Introduction</h2>
+        <p>
+          RateHub ("we," "our," "the application") is a reputation management platform for local businesses with multiple locations, operated from Argentina. This Privacy Policy explains what personal data and third-party data (in particular, Google data) we collect, how we use it, how we protect it, and what rights users have.
+        </p>
+        <p>
+          By using RateHub, the user agrees to the practices described in this policy. If you do not agree, you must refrain from using the service.
+        </p>
+
+        <h2>2. Google Business Profile Data We Access</h2>
+        <p>
+          RateHub accesses users' <strong>Google Business Profile</strong> data through the <strong>Google Business Profile API</strong>, and <strong>only after the user explicitly authorizes it</strong> via the official <strong>Google OAuth 2.0</strong> authorization protocol. The data we access includes:
+        </p>
+        <ul>
+          <li><strong>Business locations:</strong> name, address, category, and details of each location associated with the user's Google Business Profile account.</li>
+          <li><strong>Reviews:</strong> text, rating (1–5 stars), date, and author of each review published on the user's locations.</li>
+          <li><strong>Ratings:</strong> average score and rating distribution per location.</li>
+          <li><strong>Review replies:</strong> responses the business owner has published in reply to reviews, and the ability to post new replies on behalf of the user (subject to the user's confirmation within the platform).</li>
+        </ul>
+        <p>
+          <strong>We do not access</strong> end-user data from Google that does not belong to the business itself, nor do we access the user's personal Google account information (personal email, contacts, calendars, Drive, etc.).
+        </p>
+
+        <h2>3. How We Use the Data</h2>
+        <p>
+          Google Business Profile data is used <strong>exclusively</strong> to provide the user with RateHub's service features:
+        </p>
+        <ul>
+          <li>Displaying a consolidated dashboard with reviews and ratings across all locations.</li>
+          <li>Sending alerts when a new review or low rating is received.</li>
+          <li>Assisting in drafting review responses (using AI technology) and publishing them when confirmed by the user.</li>
+          <li>Facilitating the sending of review request invitations to customers on Google.</li>
+          <li>Generating monthly reputation evolution reports per location.</li>
+        </ul>
+        <p>
+          <strong>Google data is NOT used for advertising, profiling, or any purpose unrelated to the reputation management features described herein.</strong> Data is never sold to third parties under any circumstances.
+        </p>
+
+        <h2>4. Data Sharing with Third Parties</h2>
+        <p>
+          RateHub does not sell or transfer user data to third parties. Data may be shared only with <strong>technical sub-processors</strong> strictly necessary to operate the service, including:
+        </p>
+        <ul>
+          <li><strong>Cloud infrastructure providers</strong> (e.g., servers, databases) that process data on behalf of RateHub.</li>
+          <li><strong>AI providers</strong> for AI-assisted review response generation. These providers do not retain data beyond the processing of the specific request.</li>
+        </ul>
+        <p>
+          All sub-processors operate under confidentiality agreements and only access the minimum data required to fulfill their function.
+        </p>
+        <p>
+          We may disclose personal data if required by a competent judicial or legal authority, in which case we will notify the user to the extent permitted by law.
+        </p>
+
+        <h2>5. Data Storage and Security</h2>
+        <p>Collected data is stored on servers hosted in trusted cloud infrastructure. We apply the following security measures:</p>
+        <ul>
+          <li><strong>Encryption in transit:</strong> all communications between the user and RateHub, and between RateHub and Google's API, are conducted using TLS 1.2 or higher (HTTPS).</li>
+          <li><strong>Encryption at rest:</strong> sensitive data stored in databases is encrypted at rest.</li>
+          <li><strong>Access control:</strong> only RateHub personnel with an operational need may access data, under authentication and access logging.</li>
+          <li><strong>OAuth tokens:</strong> Google access and refresh tokens are stored in encrypted form and are never exposed in logs or user interfaces.</li>
+        </ul>
+
+        <h2>6. Data Retention and Deletion</h2>
+        <p>
+          Google Business Profile data is retained for as long as the user's account is active on RateHub and the OAuth authorization remains in effect.
+        </p>
+        <p>Data deletion occurs in the following cases:</p>
+        <ul>
+          <li>
+            <strong>Revocation of OAuth access:</strong> if the user revokes access from their Google account (at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>), RateHub immediately loses access to that user's Google data. Data already stored will be deleted within a maximum of 30 days from the revocation.
+          </li>
+          <li>
+            <strong>Deletion request:</strong> the user may request deletion of all their data by emailing <a href="mailto:privacy@ratehub.com.ar">privacy@ratehub.com.ar</a>. We will process the request within 30 days.
+          </li>
+          <li>
+            <strong>Account closure:</strong> upon account deactivation, all personal data and Google Business Profile data will be deleted within 30 days, unless there is a legal obligation to retain it.
+          </li>
+        </ul>
+        <p>
+          Data that has been irreversibly anonymized (with no possibility of re-identification) may be retained for longer for internal analytics purposes.
+        </p>
+
+        <h2>7. User Rights</h2>
+        <p>
+          In accordance with <strong>Argentina's Personal Data Protection Act (Law 25.326)</strong> and applicable regulations, users have the right to:
+        </p>
+        <ul>
+          <li><strong>Access:</strong> request information about what personal data we hold about you.</li>
+          <li><strong>Rectification:</strong> ask us to correct inaccurate data.</li>
+          <li><strong>Erasure:</strong> request deletion of your personal data (see Section 6).</li>
+          <li><strong>Objection:</strong> object to the processing of your data in certain circumstances.</li>
+          <li><strong>Portability:</strong> receive your data in a structured and commonly used format.</li>
+        </ul>
+        <p>
+          To exercise any of these rights, contact us at <a href="mailto:privacy@ratehub.com.ar">privacy@ratehub.com.ar</a>. We will respond within a maximum of 30 business days.
+        </p>
+        <p>
+          The Agencia de Acceso a la Información Pública (AAIP) is the data protection supervisory authority in Argentina.
+        </p>
+
+        <h2>8. Compliance with Google API Services User Data Policy</h2>
+        <p>
+          RateHub's use of information received from Google APIs complies with the
+          <strong>Google API Services User Data Policy</strong>, including the <strong>Limited Use</strong> requirements.
+          Specifically:
+        </p>
+        <ul>
+          <li>Access to Google API data is limited to the uses described in this policy and to the features explicitly requested by the user.</li>
+          <li>Google API data is not transferred to third parties except as necessary to provide the service features, for security purposes, or as required by law.</li>
+          <li>Google API data is not used to develop, improve, or train generalized AI/ML models without the user's explicit consent.</li>
+          <li>Google API data is not used for advertising or for purposes that violate Google's policies.</li>
+          <li>Humans at RateHub do not read Google API data unless required for security purposes, to comply with applicable law, or with the user's explicit consent.</li>
+        </ul>
+        <p>
+          RateHub's use of Google API data adheres to the
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+          including the Limited Use requirements.
+        </p>
+
+        <h2>9. Cookies and Similar Technologies</h2>
+        <p>
+          RateHub may use strictly necessary session and authentication cookies for the operation of the service. We do not use third-party advertising or profiling tracking cookies.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>
+          We may update this policy periodically. When we do, we will update the "Last updated" date shown at the top. Material changes will be communicated by email to registered users at least 15 days in advance.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>For questions about this privacy policy or to exercise your rights:</p>
+        <ul>
+          <li><strong>Privacy email:</strong> <a href="mailto:privacy@ratehub.com.ar">privacy@ratehub.com.ar</a></li>
+          <li><strong>General email:</strong> <a href="mailto:hola@ratehub.com.ar">hola@ratehub.com.ar</a></li>
+          <li><strong>Website:</strong> <a href="https://ratehub.com.ar">ratehub.com.ar</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer nav -->
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap gap-4 text-sm">
+        <a href="/privacidad" class="text-brand-600 hover:text-brand-700 font-medium transition-colors">Ver en español →</a>
+        <a href="/terminos" class="text-slate-500 hover:text-slate-700 transition-colors">Términos de servicio</a>
+        <a href="/" class="text-slate-500 hover:text-slate-700 transition-colors">← Back to home</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
