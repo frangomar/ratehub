@@ -1,12 +1,17 @@
+app/tsconfig.tsbuildinfo
+
 # build output
 dist/
 .output/
+app/.next/
+app/out/
 
 # generated types
 .astro/
 
 # dependencies
 node_modules/
+app/node_modules/
 
 # logs
 npm-debug.log*
